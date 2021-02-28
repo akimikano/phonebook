@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block title %}Search{% endblock %}
+{% block content %}
+    <div class="search">
+        <form action="{% url 'search' %}" method="get">
+          {% csrf_token %}
+          <input type="tel" name='text1' placeholder="{% trans 'Поиск по сайту' %}">
+          <button  type="submit" class="header__button">
+            <span>поиск</span>
+          </button>
+        </form>
+    </div>
+    <section class="phonebook">
+        <div class="phonebook__inner">
+            {% if searched_items %}
+                <div class="phonebook__item phonebook__header">
+                    <div class="num"><span>№</span></div>
+                    <div class="name"><span class="phonebook__content">{% trans 'имя' %}</span></div>
+                    <div class="surname"><span class="phonebook__content">{% trans 'фамилия' %}</span></div>
+                    <div class="phonenumber"><span class="phonebook__content">{% trans 'номер телефона' %}</span></div>
+                    <div class="is_active"><span class="phonebook__content">{% trans 'статус' %}</span></div>
+                </div>
+                {% for item in searched_items %}
+                    <a class="phonebook__item" href="{{ item.get_absolute_url }}">
+                        <div class="num"><span>{{ page_obj.start_index|add:forloop.counter0 }}</span></div>
+                        <div class="name">
+                            {% if item.name %}
+                                <span class="phonebook__content content__pers">{{ item.name }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="surname">
+                            {% if item.surname %}
+                                <span class="phonebook__content content__pers">{{ item.surname }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="phonenumber">
+                            {% if item.phone %}
+                                <span class="phonebook__content">{{ item.convert_phone }}</span>
+                            {% endif %}
+                        </div>
+                        {% if item.status %}
+                        <div class="is_active">
+                            <span class="phonebook__content">{% trans 'активен' %}</span>
+                        </div>
+                        {% else %}
+                            <div class="is_active">
+                                <span class="phonebook__content">{% trans 'неактивен' %}</span>
+                            </div>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            {% else %}
+                <div class="nothing">
+                    <h1 class="nothing__inner">Ничего не найдено</h1>
+                </div>
+
+            {% endif %}
+        </div>
+    </section>
+
+{% endblock %}

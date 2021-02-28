@@ -1,0 +1,48 @@
+{% load static %}
+{% load static i18n %}{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <header>
+                <div class="header__inner">
+                    <h1><a href="{% url 'phonebook' %}">Beeline Internship</a></h1>
+                </div>
+                <div class="lang">
+                    {% get_available_languages as languages %}
+                    {% for lang_code, lang_name in languages %}
+                      {% get_language_info for lang_code as lang_info %}
+{#                      {% if lang_code != LANGUAGE_CODE %}#}
+                        <a class="lang_button" href="/{{ lang_code }}{{ request.get_full_path|slice:'3:' }}">{{ lang_name }}</a>
+{#                      {% endif %}#}
+                    {% endfor %}
+                  </div>
+            </header>
+            {% block content %}
+            {% endblock %}
+
+            <footer>
+                <div class="footer__inner">
+                    <h4>powered by akimikano</h4>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+</body>
+</html>

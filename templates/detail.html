@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load static i18n %}
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+    <section class="personalCard">
+        <div class="photo">
+            <div class="photo__inner">
+                <img src="{% static 'img/default.jpg' %}">
+            </div>
+
+        </div>
+        <div class="personalInfo">
+            {% if phonebook_item.name %}
+                <span class="info__inner">{% trans 'Имя' %}: <span>{{ phonebook_item.name }}</span></span>
+            {% endif %}
+            {% if phonebook_item.surname %}
+                <span class="info__inner">{% trans 'Фамилия' %}: <span>{{ phonebook_item.surname }}</span></span>
+            {% endif %}
+            {% if phonebook_item.phone %}
+                <span class="info__inner">{% trans 'Телефон' %}: <span class="phone__field">{{ phonebook_item.convert_phone }}</span></span>
+            {% endif %}
+            {% if phonebook_item.device %}
+                <span class="info__inner">{% trans 'Устройство' %}: <span>{{ phonebook_item.device }}</span></span>
+            {% endif %}
+            {% if phonebook_item.address %}
+                <span class="info__inner">{% trans 'Адрес' %}: <span>{{ phonebook_item.address }}</span></span>
+            {% endif %}
+            {% if phonebook_item.passport %}
+                <span class="info__inner">{% trans 'Паспорт ID' %}: <span>{{ phonebook_item.passport }}</span></span>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
