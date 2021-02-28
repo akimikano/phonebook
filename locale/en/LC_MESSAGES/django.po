@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-27 20:53+0600\n"
+"POT-Creation-Date: 2021-02-28 13:46+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,29 +42,49 @@ msgstr "Address"
 msgid "Паспорт ID"
 msgstr "Passport ID"
 
-#: templates/index.html:11
+#: templates/index.html:8
+msgid "Поиск по номеру телефона"
+msgstr "Search by phone"
+
+#: templates/index.html:10
+msgid "поиск"
+msgstr "search"
+
+#: templates/index.html:20 templates/search.html:19
 msgid "имя"
 msgstr "name"
 
-#: templates/index.html:12
+#: templates/index.html:21 templates/search.html:20
 msgid "фамилия"
 msgstr "surname"
 
-#: templates/index.html:13
+#: templates/index.html:22 templates/search.html:21
 msgid "номер телефона"
 msgstr "phone number"
 
-#: templates/index.html:14
+#: templates/index.html:23 templates/search.html:22
 msgid "статус"
 msgstr "status"
 
-#: templates/index.html:44
+#: templates/index.html:46 templates/search.html:44
 msgid "активен"
 msgstr "active"
 
-#: templates/index.html:48
+#: templates/index.html:50 templates/search.html:48
 msgid "неактивен"
 msgstr "inactive"
+
+#: templates/index.html:59
+msgid "пред"
+msgstr "prev"
+
+#: templates/index.html:63
+msgid "след"
+msgstr "next"
+
+#: templates/search.html:8
+msgid "Поиск по сайту"
+msgstr ""
 
 #: venv/lib/python3.7/site-packages/django/views/templates/default_urlconf.html:6
 msgid "Django: the Web framework for perfectionists with deadlines."

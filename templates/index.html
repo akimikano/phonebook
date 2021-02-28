@@ -5,9 +5,9 @@
     <div class="search">
         <form action="{% url 'search' %}" method="get">
           {% csrf_token %}
-          <input type="tel" name='text1' placeholder="{% trans 'Поиск по сайту' %}">
+          <input type="tel" name='text1' placeholder="{% trans 'Поиск по номеру телефона' %}">
           <button  type="submit" class="header__button">
-            <span>поиск</span>
+            <span>{% trans 'поиск' %}</span>
           </button>
         </form>
     </div>
@@ -56,11 +56,11 @@
         <div class="pagination">
             <div class="pagination__inner">
                     {% if page_obj.has_previous %}
-                        <a class="left" href="?page={{ page_obj.previous_page_number }}">prev</a>
+                        <a class="left" href="?page={{ page_obj.previous_page_number }}">{% trans 'пред' %}</a>
                     {% endif %}
                     <div class="middle"></div>
                     {% if page_obj.has_next %}
-                        <a class="right" href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a class="right" href="?page={{ page_obj.next_page_number }}">{% trans 'след' %}</a>
                     {% endif %}
             </div>
         </div>

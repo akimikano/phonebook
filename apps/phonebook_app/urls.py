@@ -1,8 +1,9 @@
 from django.urls import path
 
-from apps.phonebook_app.views import PhonebookListView, PhonebookAPI, PhonebookDetailView, SearchView
+from apps.phonebook_app.views import PhonebookListView, PhonebookAPI, PhonebookDetailView, SearchView, initial_view
 
 urlpatterns = [
+    path('', initial_view, name='initial'),
     path('phonebook/', PhonebookListView.as_view(), name='phonebook'),
     path('phonebook/<int:pk>', PhonebookDetailView.as_view(), name='phonebook_detail'),
     path('search/', SearchView.as_view(), name='search'),

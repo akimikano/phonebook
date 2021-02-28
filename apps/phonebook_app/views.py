@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView
 from django.views.generic.list import ListView
 from rest_framework import status
@@ -54,4 +55,5 @@ class PhonebookAPI(ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
-
+def initial_view(request):
+    return render(request, 'initial.html')
