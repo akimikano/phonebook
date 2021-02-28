@@ -14,7 +14,7 @@ class PhonebookListView(ListView):
     template_name = 'index.html'
     queryset = Person.objects.all()
     allow_empty = False
-    paginate_by = 9
+    paginate_by = 15
     context_object_name = 'person_list'
 
 

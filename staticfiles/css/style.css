@@ -238,7 +238,7 @@ footer .footer__inner h4 {
 }
 
 .phonebook__inner .phonebook__item .surname {
-    width: 320px;
+    width: 310px;
 }
 
 .phonebook__inner .phonebook__item .phonenumber {
@@ -246,7 +246,7 @@ footer .footer__inner h4 {
 }
 
 .phonebook__inner .phonebook__item .is_active {
-    width: 170px;
+    width: 190px;
 }
 
 .personalCard {
