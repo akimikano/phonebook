@@ -2,3 +2,4 @@ db.sqlite3
 venv/
 .idea
 .idea/
+local_settings.py
