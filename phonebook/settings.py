@@ -14,7 +14,7 @@ SECRET_KEY = 'do3#_2^vps@=*pyn0-)*28_(rb1-7!5-2%)s8s8_j3_o7d)l_2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -120,3 +120,8 @@ STATICFILES_DIRS = (
 
 LOGIN_REDIRECT_URL = 'initial'
 LOGIN_URL = 'login'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
