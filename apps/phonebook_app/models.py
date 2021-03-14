@@ -142,6 +142,8 @@ class PhonebookUser(AbstractUser):
         return '+(996)-{}-{}-{}'.format(phone[4:7], phone[8:11], phone[10:13])
 
     def save(self, *args, **kwargs):
+        if self.get_in_date is None:
+            self.get_in_date = datetime.today()
         if self.get_out_date is not None:
             self.experience = str((self.get_out_date.year - self.get_in_date.year) * 12 +
                                   (self.get_out_date.month - self.get_in_date.month)) + ' мес'
