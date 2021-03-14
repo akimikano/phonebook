@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django.contrib.auth import password_validation
+from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 from django.urls import reverse
@@ -145,11 +146,15 @@ class PhonebookUser(AbstractUser):
         if self.get_in_date is None:
             self.get_in_date = datetime.today()
         if self.get_out_date is not None:
-            self.experience = str((self.get_out_date.year - self.get_in_date.year) * 12 +
-                                  (self.get_out_date.month - self.get_in_date.month)) + ' мес'
+            if self.get_out_date > self.get_in_date:
+                self.experience = str((self.get_out_date.year - self.get_in_date.year) * 12 +
+                                      (self.get_out_date.month - self.get_in_date.month)) + ' мес'
         else:
-            self.experience = str((datetime.today().year - self.get_in_date.year) * 12 +
-                                  (datetime.today().month - self.get_in_date.month)) + ' мес'
+            if datetime.today().strftime('%Y-%m-%d') > self.get_in_date.strftime('%Y-%m-%d'):
+                self.experience = str((datetime.today().year - self.get_in_date.year) * 12 +
+                                      (datetime.today().month - self.get_in_date.month)) + ' мес'
+            else:
+                self.experience = '0 мес'
         super().save(*args, **kwargs)
         if self._password is not None:
             password_validation.password_changed(self._password, self)

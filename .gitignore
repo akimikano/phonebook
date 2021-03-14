@@ -3,3 +3,40 @@ venv/
 .idea
 .idea/
 local_settings.py
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'phonebook',
+#        'USER': 'phonebookuser',
+#        'PASSWORD': 'phonebook2021',
+#        'HOST': 'localhost',
+#        'PORT': '',
+#    }
+#}
+#[Unit]
+#Description=gunicorn daemon
+#After=network.target
+#
+#[Service]
+#User=user
+#Group=www-data
+#WorkingDirectory=/home/user/phonebook
+#ExecStart=/home/user/phonebook/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/user/phonebook/phonebook.sock phonebook.wsgi:application
+#
+#[Install]
+#WantedBy=multi-user.target
+#
+#server {
+#    listen 80;
+#    server_name 185.193.143.133;
+#
+#    location = /favicon.ico { access_log off; log_not_found off; }
+#    location /static/ {
+#        root /home/user/phonebook;
+#    }
+#
+#    location / {
+#        include proxy_params;
+#        proxy_pass http://unix:/home/user/phonebook/phonebook.sock;
+#    }
+#}

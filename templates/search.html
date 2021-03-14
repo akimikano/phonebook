@@ -23,7 +23,7 @@
                 </div>
                 {% for item in searched_items %}
                     <a class="phonebook__item" href="{{ item.get_absolute_url }}">
-                        <div class="num"><span>{{ page_obj.start_index|add:forloop.counter0 }}</span></div>
+                        <div class="num"><span>{{ forloop.counter }}</span></div>
                         <div class="name">
                             {% if item.name %}
                                 <span class="phonebook__content content__pers">{{ item.name }}</span>
@@ -39,13 +39,17 @@
                                 <span class="phonebook__content">{{ item.convert_phone }}</span>
                             {% endif %}
                         </div>
-                        {% if item.status %}
+                        {% if item.status == 2 %}
                         <div class="is_active">
-                            <span class="phonebook__content">{% trans 'активен' %}</span>
+                            <span class="phonebook__content">администратор</span>
                         </div>
+                        {% elif item.status == 1 %}
+                            <div class="is_active">
+                                <span class="phonebook__content">руководитель</span>
+                            </div>
                         {% else %}
                             <div class="is_active">
-                                <span class="phonebook__content">{% trans 'неактивен' %}</span>
+                                <span class="phonebook__content">пользователь</span>
                             </div>
                         {% endif %}
                     </a>
