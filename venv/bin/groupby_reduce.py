@@ -1,4 +1,4 @@
-#!/home/akimikano/Documents/Projects/phonebook/venv/bin/python3.7
+#!/home/akimikano/Documents/projects/self/phonebook/venv/bin/python3.7
 """
 Streaming implementation of groupby then reduce.  Prints a delimited report
 with header e.g.

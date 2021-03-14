@@ -1,14 +1,16 @@
 from django.contrib import admin
-from django.contrib.auth.models import User, Group
 
-from apps.phonebook_app.models import Person
+from .models import PhonebookUser, City, Age
 from modeltranslation.admin import TabbedTranslationAdmin
 
 
-class PersonAdmin(TabbedTranslationAdmin):
-    pass
+class PhonebookUserAdmin(admin.ModelAdmin):
+    fields = ['username', 'name', 'surname', 'phone', 'email', 'age', 'gender', 'work_status', 'city',
+              'address', 'status', 'get_in_date', 'get_out_date', 'experience']
+
+    readonly_fields = ['experience']
 
 
-admin.site.unregister(User)
-admin.site.unregister(Group)
-admin.site.register(Person, PersonAdmin)
+admin.site.register(PhonebookUser, PhonebookUserAdmin)
+admin.site.register(Age)
+admin.site.register(City)

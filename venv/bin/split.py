@@ -1,4 +1,4 @@
-#!/home/akimikano/Documents/Projects/phonebook/venv/bin/python3.7
+#!/home/akimikano/Documents/projects/self/phonebook/venv/bin/python3.7
 """
 Splits a file or stdin into multiple files.  Assumes a header.
 

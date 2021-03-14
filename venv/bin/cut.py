@@ -1,4 +1,4 @@
-#!/home/akimikano/Documents/Projects/phonebook/venv/bin/python3.7
+#!/home/akimikano/Documents/projects/self/phonebook/venv/bin/python3.7
 """
 Reads a csv file or stdin, keeps/removes selected columns.
 Prints to stdout or a file.

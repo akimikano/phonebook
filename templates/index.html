@@ -5,15 +5,19 @@
     <div class="search">
         <form action="{% url 'search' %}" method="get">
           {% csrf_token %}
-          <input type="tel" name='text1' placeholder="{% trans 'Поиск по номеру телефона' %}">
+          <input type="tel" name='text1'>
           <button  type="submit" class="header__button">
             <span>{% trans 'поиск' %}</span>
           </button>
         </form>
+
     </div>
 
 
     <section class="phonebook">
+    {% if user.status == 2 %}
+        <a class="add" href="{% url 'create' %}">Добавить пользователя</a>
+    {% endif %}
         <div class="phonebook__inner">
             <div class="phonebook__item phonebook__header">
                 <div class="num"><span>№</span></div>
@@ -41,13 +45,17 @@
                                 <span class="phonebook__content">{{ item.convert_phone }}</span>
                             {% endif %}
                         </div>
-                        {% if item.status %}
+                        {% if item.status == 2 %}
                         <div class="is_active">
-                            <span class="phonebook__content">{% trans 'активен' %}</span>
+                            <span class="phonebook__content">{% trans 'администратор' %}</span>
                         </div>
+                        {% elif item.status == 1 %}
+                            <div class="is_active">
+                                <span class="phonebook__content">{% trans 'руководитель' %}</span>
+                            </div>
                         {% else %}
                             <div class="is_active">
-                                <span class="phonebook__content">{% trans 'неактивен' %}</span>
+                                <span class="phonebook__content">{% trans 'пользователь' %}</span>
                             </div>
                         {% endif %}
                     </a>

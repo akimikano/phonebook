@@ -21,15 +21,41 @@
             {% if phonebook_item.phone %}
                 <span class="info__inner">{% trans 'Телефон' %}: <span class="phone__field">{{ phonebook_item.convert_phone }}</span></span>
             {% endif %}
-            {% if phonebook_item.device %}
-                <span class="info__inner">{% trans 'Устройство' %}: <span>{{ phonebook_item.device }}</span></span>
+            {% if phonebook_item.email %}
+                <span class="info__inner">{% trans 'Почта' %}: <span>{{ phonebook_item.email }}</span></span>
+            {% endif %}
+            {% if phonebook_item.work_status %}
+                <span class="info__inner">{% trans 'Статус работы' %}: <span>{{ phonebook_item.get_work_status_display }}</span></span>
+            {% endif %}
+            {% if phonebook_item.city %}
+                <span class="info__inner">{% trans 'Город' %}: <span>{{ phonebook_item.city }}</span></span>
             {% endif %}
             {% if phonebook_item.address %}
                 <span class="info__inner">{% trans 'Адрес' %}: <span>{{ phonebook_item.address }}</span></span>
             {% endif %}
-            {% if phonebook_item.passport %}
-                <span class="info__inner">{% trans 'Паспорт ID' %}: <span>{{ phonebook_item.passport }}</span></span>
+            {% if phonebook_item.get_in_date %}
+                <span class="info__inner">{% trans 'Дата приема' %}: <span>{{ phonebook_item.get_in_date }}</span></span>
+            {% endif %}
+            {% if phonebook_item.get_out_date %}
+                <span class="info__inner">{% trans 'Дата увольнения' %}: <span>{{ phonebook_item.get_out_date }}</span></span>
+            {% endif %}
+            {% if phonebook_item.experience %}
+                <span class="info__inner">{% trans 'Стаж работы' %}: <span>{{ phonebook_item.experience }}</span></span>
             {% endif %}
         </div>
     </section>
+    <div class="detail-buttons" style="height: 400px">
+        {% if user.status == 2 %}
+        <a class="delete-button" href="{% url 'delete' phonebook_item.id %}">Удалить</a>
+        {% if phonebook_item.status == 0 %}
+            <a class="delete-button" href="{% url 'make-middleuser' phonebook_item.id %}">Сделать руководителем</a>
+            <a class="delete-button" href="{% url 'make-superuser' phonebook_item.id %}">Сделать администратором</a>
+        {% endif %}
+        {% if phonebook_item.status == 1 %}
+            <a class="delete-button" href="{% url 'make-user' phonebook_item.id %}">Сделать обычным пользователем</a>
+            <a class="delete-button" href="{% url 'make-superuser' phonebook_item.id %}">Сделать администратором</a>
+        {% endif %}
+        {% endif %}
+    </div>
+
 {% endblock %}

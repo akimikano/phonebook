@@ -22,15 +22,9 @@
                 <div class="header__inner">
                     <h1><a href="{% url 'phonebook' %}">Beeline Internship</a></h1>
                 </div>
-                <div class="lang">
-                    {% get_available_languages as languages %}
-                    {% for lang_code, lang_name in languages %}
-                      {% get_language_info for lang_code as lang_info %}
-{#                      {% if lang_code != LANGUAGE_CODE %}#}
-                        <a class="lang_button" href="/{{ lang_code }}{{ request.get_full_path|slice:'3:' }}">{{ lang_name }}</a>
-{#                      {% endif %}#}
-                    {% endfor %}
-                  </div>
+                {% if user.is_authenticated %}
+                    <a class="header-logout" href="{% url 'logout' %}">Выйти</a>
+                {% endif %}
             </header>
             {% block content %}
             {% endblock %}

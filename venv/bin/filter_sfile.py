@@ -1,4 +1,4 @@
-#!/home/akimikano/Documents/Projects/phonebook/venv/bin/python3.7
+#!/home/akimikano/Documents/projects/self/phonebook/venv/bin/python3.7
 """
 Filters an sfile, reading from a file or stdin, writing to a file or stdout.
 """

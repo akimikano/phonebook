@@ -5,7 +5,7 @@
 }
 
 body {
-    min-height: 900px;
+    min-height: 800px;
     margin: 0 auto;
     padding: 0;
     background-color: #0B0C10;
@@ -13,12 +13,12 @@ body {
 }
 
 .main {
-    min-height: 900px;
+    min-height: 800px;
 }
 
 .container {
     width: 1100px;
-    min-height: 900px;
+    min-height: 800px;
     margin: 0 auto;
     position: relative;
 }
@@ -29,25 +29,13 @@ body {
     right: 0;
 }
 
-.lang_button {
-    text-decoration: None;
-    font-size: 25px;
+.header-logout {
     color: #C5C6C7;
-    position: relative;
-}
-
-.lang_button:first-child {
-    padding-right: 10px;
-}
-
-.lang_button:first-child:before {
-    content: '';
-    height: 35px;
-    width: 2px;
+    text-decoration: none;
+    font-size: 25px;
     position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #C5C6C7;
+    top: 50px;
+    left: 90%;
 }
 
 header .header__inner {
@@ -98,11 +86,29 @@ button:focus {
     border-radius: 20px;
 }
 
-.search form input:focus {
+input:focus {
     outline: none;
 }
 
-.search form input[type=tel] {
+input[type=tel] {
+    font-size: 20px;
+    padding: 0 15px;
+    color: #C5C6C7;
+}
+
+input[type=text] {
+    font-size: 20px;
+    padding: 0 15px;
+    color: #C5C6C7;
+}
+
+input[type=email] {
+    font-size: 20px;
+    padding: 0 15px;
+    color: #C5C6C7;
+}
+
+input[type=password] {
     font-size: 20px;
     padding: 0 15px;
     color: #C5C6C7;
@@ -137,9 +143,18 @@ button:focus {
     color: #45A29E;
 }
 
+.add {
+    font-size: 25px;
+    color: #C5C6C7;
+    text-decoration: none;
+}
+
 
 footer {
-
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 
@@ -218,7 +233,7 @@ footer .footer__inner h4 {
     width: 50px;
     display: flex;
     justify-content: center;
-    font-size: 30px;
+    font-size: 22px;
 }
 
 .phonebook__inner .phonebook__item .phonenumber span {
@@ -250,10 +265,11 @@ footer .footer__inner h4 {
 }
 
 .personalCard {
-    height: 600px;
+    min-height: 400px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 70px;
 }
 
 .personalCard .photo {
@@ -282,14 +298,14 @@ footer .footer__inner h4 {
 
 .personalCard .personalInfo {
     width: 60%;
-    height: 400px;
+    min-height: 400px;
     background-color: #1F2833;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size: 40px;
     color: #45A29E;
-    padding-left: 40px;
+    padding: 30px 20px 30px 40px;
 }
 
 .personalCard .personalInfo .info__inner span {
@@ -335,6 +351,66 @@ footer .footer__inner h4 {
     background-color: #C5C6C7;
 }
 
+.signup {
+    width: 70%;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.reg-label {
+    font-size: 30px;
+    color: #45A29E;
+}
+
+.reg-input {
+    height: 40px;
+    width: 400px;
+    background-color: #1F2833;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    opacity: 80%;
+}
+
+.reg-error {
+    color: #C5C6C7;
+    margin-bottom: 15px;
+}
+
+.signup-button {
+    display: block;
+    height: 40px;
+    width: 150px;
+    right: 0;
+    bottom: 0;
+    background-color: #1F2833;
+    border-radius: 20px;
+    margin: 0 auto 30px;
+}
+
+.signup-button:hover {
+    background-color: #45A29E;
+    transition: 0.3s linear;
+}
+
+.signup-button:hover span {
+    color: #1F2833;
+    transition: 0.3s linear;
+}
+
+.signup-button span {
+    font-size: 30px;
+    color: #45A29E;
+}
+
 .nothing {
     width: 100%;
     display: flex;
@@ -354,4 +430,73 @@ footer .footer__inner h4 {
     background-color: #C5C6C7;
     width: 200px;
     height: 2px;
+}
+
+.initial {
+    display: flex;
+    justify-content: space-around;
+}
+
+.initial a {
+    display: inline-block;
+    color: #C5C6C7;
+    font-size: 35px;
+}
+
+.welcome {
+    font-size: 35px;
+    color: #C5C6C7;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 50px;
+}
+
+.login {
+    margin: 80px auto 60px;
+}
+
+.login__inner {
+    display: flex;
+    justify-content: center;
+}
+
+.auth {
+    margin: 50px auto 70px;
+}
+
+.delete {
+    color: #C5C6C7;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 30px;
+}
+
+.delete-button {
+    font-size: 30px;
+    color: #C5C6C7;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.already-signed-div {
+    width: 330px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.already-login {
+    width: 350px;
+}
+
+.already-signed {
+    color: #C5C6C7;
+    font-size: 25px;
+
+}
+
+.already-signed-div a {
+    font-size: 25px;
+    color: #C5C6C7;
 }

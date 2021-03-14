@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+    <form method="post" style="height: 900px">
+    {% csrf_token %}
+    <div class="signup">
+        {% for field in form %}
+            <h4 class="reg-error">{{ field.errors }}</h4>
+            <div class="signup__inner">
+                <h3 class="reg-label">{{ field.label }}</h3>
+                {% render_field field class="reg-input" %}
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <button class="signup-button" type="submit">Sign Up</button>
+    </form>
+
+
+{% endblock %}

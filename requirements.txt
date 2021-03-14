@@ -3,8 +3,10 @@ django-jet==1.0.8
 django-modeltranslation==0.16.2
 django-phonenumber-field==5.0.0
 django-rest-framework==0.1.0
+django-widget-tweaks==1.4.8
 djangorestframework==3.12.2
 phonenumbers==8.12.18
+pkg-resources==0.0.0
 pytz==2021.1
 rosetta==0.3
 six==1.15.0

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Delete{% endblock %}
+{% block content %}
+    <form method="post">{% csrf_token %}
+        {% if user.id == object.id %}
+            <h2 class="delete">Вы уверены что хотите удалить свой аккаунт?</h2>
+        {% else %}
+            <h2 class="delete">Вы уверены что хотите удалить "{{ object }}"?</h2>
+        {% endif %}
+        <button class="signup-button" type="submit" value="Confirm">Удалить</button>
+    </form>
+{% endblock %}

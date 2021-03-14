@@ -1,4 +1,4 @@
-#!/home/akimikano/Documents/Projects/phonebook/venv/bin/python3.7
+#!/home/akimikano/Documents/projects/self/phonebook/venv/bin/python3.7
 """
 Subsample files or stdin and write to stdout.  Optionally subsample in the
 space of different values of a KEY_COLUMN.  When doing this, every time a

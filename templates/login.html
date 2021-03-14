@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="login">
+
+            <h4 class="reg-error">{{ form.username.errors }}</h4>
+            <div class="signup__inner login__inner">
+                {% render_field form.username class="reg-input" placeholder=form.username.label %}
+            </div>
+            <h4 class="reg-error">{{ form.password.errors }}</h4>
+            <div class="signup__inner login__inner">
+                {% render_field form.password class="reg-input" placeholder="Пароль" %}
+            </div>
+        </div>
+        <button class="signup-button" type="submit">Войти</button>
+    </form>
+    <div class="already-signed-div already-login">
+        <h4 class="already-signed">Нет аккаунта?</h4><a href="{% url 'signup' %}">Регистрация</a>
+    </div>
+{% endblock %}

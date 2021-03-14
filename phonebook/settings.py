@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'apps.phonebook_app'
+    'apps.phonebook_app',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'apps.phonebook_app.validators.MyCustomMinimumLengthValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -93,34 +94,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'phonebook_app.PhonebookUser'
+
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
 }
 
+DATE_FORMAT = 'd-m-Y'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
-
-LANGUAGE_CODE = 'ru-ru'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
-
-LANG_INFO = django.conf.locale.LANG_INFO
-
-LANGUAGES = (
-    ('ru', 'ru'),
-    ('en', 'eng'),
-)
-
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
-MODELTRANSLATION_LANGUAGES = ('ru', 'en')
-
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
 
 
 # Static files (CSS, JavaScript, Images)
@@ -133,3 +117,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'staticfiles'),
 )
+
+LOGIN_REDIRECT_URL = 'initial'
+LOGIN_URL = 'login'
