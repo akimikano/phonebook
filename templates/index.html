@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
+
 {% block title %}Beeline Internship{% endblock %}
 {% block content %}
     <div class="search">
         <form action="{% url 'search' %}" method="get">
           {% csrf_token %}
-          <input type="tel" name='text1'>
+          <input type="tel" name='text1' list="users-list">
+            {% if person_list %}
+                <datalist id="users-list">
+                    {% for user in person_list %}
+                    <option value="{{ user.name }}">
+                    {% endfor %}
+                </datalist>
+            {% endif %}
           <button  type="submit" class="header__button">
             <span>поиск</span>
           </button>
         </form>
-
     </div>
 
 
@@ -73,5 +80,6 @@
         </div>
         </div>
     </section>
+
 
 {% endblock %}

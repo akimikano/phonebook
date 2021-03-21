@@ -2,6 +2,7 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.db.models import Q
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.decorators import method_decorator
@@ -10,6 +11,7 @@ from django.views.generic.list import ListView
 from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
 from .forms import SignUpForm, UserForm
@@ -55,7 +57,6 @@ class PhonebookDeleteView(DeleteView):
     template_name = 'phonebookuser_confirm_delete.html'
 
 
-
 class SearchView(TemplateView):
     template_name = 'search.html'
 
@@ -69,6 +70,7 @@ class SearchView(TemplateView):
                 Q(city__name__icontains=query)
                 )
         context['searched_items'] = searched_items
+        context['person_list'] = PhonebookUser.objects.all()
         return context
 
 
@@ -77,6 +79,14 @@ class PhonebookAPI(ModelViewSet):
     queryset = PhonebookUser.objects.all()
     pagination_class = PageNumberPagination
     page_size = REST_FRAMEWORK['PAGE_SIZE']
+
+    def get_queryset(self, **kwargs):
+        print(kwargs)
+        word = self.request.GET['name']
+        print(self.request.GET)
+        print(word)
+        objs = PhonebookUser.objects.filter(name=word)
+        return objs
 
     def get_object(self):
         if 'pk' in self.kwargs:
@@ -90,6 +100,16 @@ class PhonebookAPI(ModelViewSet):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+
+class TestAPI(APIView):
+
+    def get(self, request):
+        obj = PhonebookUser.objects.filter(name=request.query_params['name'])
+        print(obj)
+        serializer = PersonSerializerDetail(obj, many=True)
+        print(serializer.data)
+        return Response(serializer.data)
 
 
 def initial_view(request):

@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 800px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #0B0C10;
+    font-family: 'Jura';
+}
+
+.main {
+    min-height: 800px;
+}
+
+.container {
+    width: 1100px;
+    min-height: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.lang {
+    margin-top: 15px;
+    position: absolute;
+    right: 0;
+}
+
+.header-logout {
+    color: #C5C6C7;
+    text-decoration: none;
+    font-size: 25px;
+    position: absolute;
+    top: 50px;
+    left: 90%;
+}
+
+header .header__inner {
+    margin: 30px auto;
+}
+
+header .header__inner a {
+    text-decoration: None;
+    color: #45A29E;
+
+}
+
+header .header__inner h1 {
+    color: #66FCF1;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+button:focus {
+    border: none;
+    outline: none;
+}
+
+.search {
+    height: 40px;
+    width: 490px;
+    margin: 0 auto 60px auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search form input {
+    height: 40px;
+    width: 400px;
+    background-color: #1F2833;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type=tel] {
+    font-size: 20px;
+    padding: 0 15px;
+    color: #C5C6C7;
+}
+
+input[type=text] {
+    font-size: 20px;
+    padding: 0 15px;
+    color: #C5C6C7;
+}
+
+input[type=email] {
+    font-size: 20px;
+    padding: 0 15px;
+    color: #C5C6C7;
+}
+
+input[type=password] {
+    font-size: 20px;
+    padding: 0 15px;
+    color: #C5C6C7;
+}
+
+::placeholder {
+    color: #45A29E;
+}
+
+.search form button {
+    height: 40px;
+    width: 80px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #1F2833;
+    border-radius: 20px;
+}
+
+.search form button:hover {
+    background-color: #45A29E;
+    transition: 0.3s linear;
+}
+
+.search form button:hover span {
+    color: #1F2833;
+    transition: 0.3s linear;
+}
+
+.search form button span {
+    font-size: 20px;
+    color: #45A29E;
+}
+
+.add {
+    font-size: 25px;
+    color: #C5C6C7;
+    text-decoration: none;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+footer .footer__inner::before {
+    content: '';
+    position: absolute;
+    background-color: #C5C6C7;
+    width: 150px;
+    height: 1px;
+}
+
+footer .footer__inner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+footer .footer__inner h4 {
+    display: inline-block;
+    padding-top: 20px;
+    color: #C5C6C7;
+}
+
+.phonebook {
+    min-height: 700px;
+}
+
+.phonebook .phonebook__inner {
+    margin: 50px auto;
+    height: 100%;
+    font-size: 32px;
+}
+
+.phonebook .phonebook__inner .phonebook__header {
+    margin-bottom: 20px;
+
+}
+
+.phonebook .phonebook__inner .phonebook__item {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: 13px;
+    text-decoration: None;
+}
+
+.phonebook .phonebook__inner a:hover div {
+    background-color: #C5C6C7;
+    color: #1F2833;
+    transition: 0.3s linear;
+}
+
+.phonebook__inner .phonebook__item div {
+    background-color: #1F2833;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    color: #C5C6C7;
+    border-radius: 25px;
+}
+
+.phonebook__inner .phonebook__header div {
+    background-color: #0B0C10;
+    font-size: 30px;
+    justify-content: center;
+
+}
+
+.phonebook__inner .phonebook__item div .content__pers {
+    margin-left: 20px;
+}
+
+.phonebook__inner .phonebook__item .num, .phonenumber, .is_active {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.phonebook__inner .phonebook__item .phonenumber span {
+    font-size: 27px;
+}
+
+.phonebook__inner .phonebook__header .phonenumber span {
+    font-size: 30px;
+}
+
+.phonebook__inner .phonebook__item .num span {
+
+}
+
+.phonebook__inner .phonebook__item .name {
+    width: 230px;
+}
+
+.phonebook__inner .phonebook__item .surname {
+    width: 310px;
+}
+
+.phonebook__inner .phonebook__item .phonenumber {
+    width: 290px;
+}
+
+.phonebook__inner .phonebook__item .is_active {
+    width: 190px;
+}
+
+.personalCard {
+    min-height: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin-top: 70px;
+}
+
+.personalCard .photo {
+    background-color: #1F2833;
+    width: 35%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.personalCard .photo .photo__inner {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.personalCard .photo .photo__inner img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.personalCard .personalInfo {
+    width: 60%;
+    min-height: 400px;
+    background-color: #1F2833;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 40px;
+    color: #45A29E;
+    padding: 30px 20px 30px 40px;
+}
+
+.personalCard .personalInfo .info__inner span {
+    color:#C5C6C7;
+    font-size: 45px;
+}
+
+/*.personalCard .personalInfo .info__inner .phone__field {*/
+/*    font-size: 40px;*/
+/*}*/
+
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.pagination__inner {
+    width: 300px;
+    position: relative;
+}
+
+.pagination a {
+    display: inline-block;
+    text-decoration: None;
+    color: #C5C6C7;
+}
+
+.pagination .left {
+    float: left;
+}
+
+.pagination .right {
+    float: right;
+}
+
+.pagination .middle {
+    position: absolute;
+    right: 50%;
+    height: 100%;
+    width: 2px;
+    background-color: #C5C6C7;
+}
+
+.signup {
+    width: 70%;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.reg-label {
+    font-size: 30px;
+    color: #45A29E;
+}
+
+.reg-input {
+    height: 40px;
+    width: 400px;
+    background-color: #1F2833;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    opacity: 80%;
+}
+
+.reg-error {
+    color: #C5C6C7;
+    margin-bottom: 15px;
+}
+
+.signup-button {
+    display: block;
+    height: 40px;
+    width: 150px;
+    right: 0;
+    bottom: 0;
+    background-color: #1F2833;
+    border-radius: 20px;
+    margin: 0 auto 30px;
+}
+
+.signup-button:hover {
+    background-color: #45A29E;
+    transition: 0.3s linear;
+}
+
+.signup-button:hover span {
+    color: #1F2833;
+    transition: 0.3s linear;
+}
+
+.signup-button span {
+    font-size: 30px;
+    color: #45A29E;
+}
+
+.nothing {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.nothing__inner {
+    color: #C5C6C7;
+    font-size: 40px;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.nothing::before {
+    content: '';
+    position: absolute;
+    background-color: #C5C6C7;
+    width: 200px;
+    height: 2px;
+}
+
+.initial {
+    display: flex;
+    justify-content: space-around;
+}
+
+.initial a {
+    display: inline-block;
+    color: #C5C6C7;
+    font-size: 35px;
+}
+
+.welcome {
+    font-size: 35px;
+    color: #C5C6C7;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 50px;
+}
+
+.login {
+    margin: 80px auto 60px;
+}
+
+.login__inner {
+    display: flex;
+    justify-content: center;
+}
+
+.auth {
+    margin: 50px auto 70px;
+}
+
+.delete {
+    color: #C5C6C7;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 30px;
+}
+
+.delete-button {
+    font-size: 30px;
+    color: #C5C6C7;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.already-signed-div {
+    width: 330px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.already-login {
+    width: 350px;
+}
+
+.already-signed {
+    color: #C5C6C7;
+    font-size: 25px;
+
+}
+
+.already-signed-div a {
+    font-size: 25px;
+    color: #C5C6C7;
+}

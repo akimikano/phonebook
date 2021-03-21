@@ -1,6 +1,6 @@
-from django.urls import path
+from django.urls import path, re_path
 from .views import PhonebookListView, PhonebookAPI, PhonebookDetailView, SearchView, initial_view, SignUpView, \
-    PhonebookDeleteView, UserCreateView, make_user, make_middleuser, make_superuser
+    PhonebookDeleteView, UserCreateView, make_user, make_middleuser, make_superuser, TestAPI
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -18,6 +18,7 @@ urlpatterns = [
     path('make-middleuser/<int:pk>', make_middleuser, name='make-middleuser'),
     path('make-superuser/<int:pk>', make_superuser, name='make-superuser'),
 
-    # path('api/phonebook/', PhonebookAPI.as_view({'get': 'list', 'post': 'create'})),
-    # path('api/phonebook/<int:pk>', PhonebookAPI.as_view({'get': 'retrieve', 'put': 'update'})),
+    path('api/phonebook/', PhonebookAPI.as_view({'get': 'list', 'post': 'create'})),
+    path('api/phonebook/<int:pk>', PhonebookAPI.as_view({'get': 'retrieve', 'put': 'update'})),
+    path('api/test/', TestAPI.as_view()),
 ]
