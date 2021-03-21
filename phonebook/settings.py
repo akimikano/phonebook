@@ -29,11 +29,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
-    'allauth',
-    'django.contrib.sites',
-    'rest_auth.registration',
     'apps.phonebook_app',
     'widget_tweaks',
 ]
